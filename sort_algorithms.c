@@ -17,9 +17,18 @@ void swap(int *x, int *y) {
 void bubbleSort(int arr[], int size) {
 /* with swaps counting.
  */
-  int i, j;
-  for (i = 0; i <= size-1; ++i)      
+  int i, j, swaps;
+
+  for (i = 0; i <= size-1; ++i) {  
+    swaps = 0;   
+ 
     for (j = size; j >= i+1; --j)
-      if (arr[j] < arr[j-1])
+      if (arr[j] < arr[j-1]) {
         swap(&arr[j], &arr[j-1]);
+        ++swaps;
+      }
+
+    if (swaps == 0)
+      break;
+  }
 }
