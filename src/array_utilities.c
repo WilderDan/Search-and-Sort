@@ -1,3 +1,11 @@
+/*  Author: 		Dan Wilder
+ *
+ *  School:		University of Missouri - St. Louis
+ *  Semester:		Fall 2015
+ *  Class: 		CS 3130 - Design and Analysis of Algorithms   
+ *  Instructor:		Galina N. Piatnitskaia
+ */
+
 #include "array_utilities.h"
 #include <stdio.h>
 #include <stdlib.h>
