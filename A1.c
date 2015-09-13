@@ -10,6 +10,20 @@
 #include "sort_algorithms.h"
 #include "array_utilities.h"
 
+#define SIZE 100
+
 int main() {
+  int arr[SIZE];
+
+  srand (time(NULL));
+
+  randomInitialize(arr, SIZE, 9999);
+  printf("Original Array:\n\n");
+  printArray(arr, SIZE);
+
+  bubbleSort(arr, SIZE);
+  printf("Bubble sort with swaps counting:\n\n");
+  printArray(arr, SIZE);
+
   return 0;
 }
