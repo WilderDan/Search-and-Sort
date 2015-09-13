@@ -6,10 +6,10 @@
  *  Instructor:		Galina N. Piatnitskaia
  */
 
-#include <stido.h>
+#include <stdio.h>
 #include "sort_algorithms.h"
 
 int main() {
-
   return 0;
 }
+
