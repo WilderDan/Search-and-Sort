@@ -1,4 +1,5 @@
 #include "array_utilities.h"
+#include <stdlib.h>
 
 void printArray(int arr[], int size) {
 /* Print in square table (10x10) with columns aligned
@@ -12,4 +13,16 @@ void printArray(int arr[], int size) {
   }
 
   printf("\n");
+}
+
+void randomInitialize(int arr[], int size, int maxVal) {
+/* Initialize arr[0..size-1] to random int in interval [1, maxVal]
+ * srand() should be called in application program ONCE prior to calling this
+ */
+  int i, randomInt;
+   
+  for (i = 0; i < size; i++) {
+    randomInt = (rand() % maxVal-1) + 1;
+    arr[i] = randomInt;
+  }
 }
