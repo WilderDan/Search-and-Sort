@@ -7,6 +7,8 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "../include/sort_algorithms.h"
 #include "../include/array_utilities.h"
 
@@ -15,7 +17,7 @@
 int main() {
   int arr[SIZE];
 
-  srand (time(NULL));
+  srand(time(NULL));
 
   randomInitialize(arr, SIZE, 9999);
   printf("Original Array:\n\n");
