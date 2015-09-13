@@ -6,7 +6,7 @@
  *  Instructor:		Galina N. Piatnitskaia
  */
  
-#include "sort_algorithms.h"
+#include "../include/sort_algorithms.h"
 
 void swap(int *x, int *y) {
   int temp = *x;

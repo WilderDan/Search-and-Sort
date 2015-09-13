@@ -6,7 +6,7 @@
  *  Instructor:		Galina N. Piatnitskaia
  */
 
-#include "array_utilities.h"
+#include "../include/array_utilities.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -7,8 +7,8 @@
  */
 
 #include <stdio.h>
-#include "sort_algorithms.h"
-#include "array_utilities.h"
+#include "../include/sort_algorithms.h"
+#include "../include/array_utilities.h"
 
 #define SIZE 100
 
