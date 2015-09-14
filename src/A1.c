@@ -24,7 +24,15 @@ int main() {
   printArray(arr, SIZE);
 
   bubbleSort(arr, SIZE);
-  printf("Bubble sort with swaps counting:\n\n");
+  printf("Bubble Sort with swaps counting:\n\n");
+  printArray(arr, SIZE);
+
+  randomInitialize(arr, SIZE, 9999);
+  printf("Original Array:\n\n");
+  printArray(arr, SIZE);
+
+  cocktailSort(arr, SIZE);
+  printf("Cocktail Sort with swaps counting:\n\n");
   printArray(arr, SIZE);
 
   return 0;
