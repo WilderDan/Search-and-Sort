@@ -32,3 +32,35 @@ void bubbleSort(int arr[], int size) {
       break;
   }
 }
+
+void cocktailSort(int arr[], int size) {
+/* with swaps counting.
+ */
+  int i, begin, end, swaps;
+  
+  begin = -1; // Index: Will be incremented to 0 on first iteration
+  end = size - 1; // Size is num elements in arr; -1 as offset for index  
+  do {
+    swaps = 0;
+    ++begin; // Elements before 'begin' are already in correct order 
+    for(i = begin; i < end; ++i) { // Final i will be 1 before end
+      if(arr[i] > arr[i + 1]) {
+        swap( &arr[i], &arr[i + 1] );
+        ++swaps;
+      }
+    }
+
+    if (swaps == 0)
+      break; // arr is sorted
+
+    swaps = 0;
+    --end;  // Elements after 'end' are already in correct order.
+    for (i = end; i > begin; --i) { // Final i will be 1 after begin
+      if (arr[i] < arr[i-1]) {
+        swap(&arr[i], &arr[i - 1]);
+        ++swaps;
+      }
+    }
+  }
+  while (swaps);
+}
