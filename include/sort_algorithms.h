@@ -10,5 +10,6 @@
 #define SORT_ALGORITHMS_H
 
 void bubbleSort(int [], int);
+void cocktailSort(int [], int);
 
 #endif
