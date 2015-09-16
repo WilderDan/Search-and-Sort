@@ -9,7 +9,7 @@ A1=A1.out
 all: $(A1)
 
 $(A1): $(OBJECTS_A1)  
-	$(CC) $(OBJECTS_A1) -o $(A1)
+	$(CC) $(OBJECTS_A1) -o $(A1) -lm
 
 obj/A1.o: src/A1.c ./include/sort_algorithms.h ./include/array_utilities.h
 	$(CC) $(CFLAGS) src/A1.c -o obj/A1.o
