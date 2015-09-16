@@ -11,5 +11,6 @@
 
 void printArray(int [], int);
 void randomInitialize(int [], int, int);
+void copyArray(int [], int [], int);
 
 #endif
