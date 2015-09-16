@@ -35,3 +35,10 @@ void randomInitialize(int arr[], int size, int maxVal) {
     arr[i] = randomInt;
   }
 }
+
+void copyArray(int dest[], int source[], int size) {
+
+  int i;
+  for (i = 0; i < size; ++i)
+    dest[i] = source[i];
+}
