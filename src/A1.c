@@ -18,7 +18,6 @@ int main() {
 
   int origin[SIZE];
   int arr[SIZE];
-  int gaps_1[8] = {701, 301, 132, 57, 23, 10, 4, 1};
 
   srand(time(NULL));
   randomInitialize(origin, SIZE, 9999);
@@ -37,8 +36,8 @@ int main() {
   printArray(arr, SIZE);
  
   copyArray(arr, origin, SIZE);
-  shellSort(arr, SIZE, gaps_1, 8);
-  printf("Shellsort with gap sequence {701, 301, 132, 57, 23, 10, 4, 1}:\n\n");
+  shellSort(arr, SIZE);
+  printf("Shellsort with gap sequence 2^k - 1; (1 appended to sequence)\n\n");
   printArray(arr, SIZE);
 
   return 0;
