@@ -37,7 +37,12 @@ int main() {
  
   copyArray(arr, origin, SIZE);
   shellSort_1(arr, SIZE);
-  printf("Shellsort with gap sequence 2^k - 1; (1 appended to sequence)\n\n");
+  printf("Shellsort with gap sequence 2^k + 1; (1 appended to sequence)\n\n");
+  printArray(arr, SIZE);
+
+  copyArray(arr, origin, SIZE);
+  shellSort_1(arr, SIZE);
+  printf("Shellsort with gap sequence (3^k - 1)/2 < ceiling(N/3)\n\n");
   printArray(arr, SIZE);
 
   return 0;

@@ -85,3 +85,21 @@ void shellSort_1(int arr[], int size) {
     }
   }
 }
+
+void shellSort_2(int arr[], int size) {
+
+  int gap, i, j, k, temp;
+ 
+  for (k = floor( log(2*ceil((size-1)/3)+1) / log(3) ); k > 0; --k) { 
+
+    gap = (pow(3, k) - 1)/2;
+
+    for (i = gap; i < size; ++i) { 
+      temp = arr[i];
+      for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+        arr[j] = arr[j - gap];
+      }    
+      arr[j] = temp;
+    }
+  }
+}
