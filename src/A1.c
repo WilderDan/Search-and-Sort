@@ -15,7 +15,9 @@
 #define SIZE 100
 
 int main() {
+
   int arr[SIZE];
+  int gaps_1[8] = {701, 301, 132, 57, 23, 10, 4, 1};
 
   srand(time(NULL));
 
@@ -33,6 +35,14 @@ int main() {
 
   cocktailSort(arr, SIZE);
   printf("Cocktail Sort with swaps counting:\n\n");
+  printArray(arr, SIZE);
+
+  randomInitialize(arr, SIZE, 9999);
+  printf("Original Array:\n\n");
+  printArray(arr, SIZE);
+
+  shellSort(arr, SIZE, gaps_1, 8);
+  printf("Shellsort with gap sequence {701, 301, 132, 57, 23, 10, 4, 1}:\n\n");
   printArray(arr, SIZE);
 
   return 0;
