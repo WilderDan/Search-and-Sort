@@ -66,7 +66,7 @@ void cocktailSort(int arr[], int size) {
   while (swaps);
 }
 
-void shellSort(int arr[], int size) {
+void shellSort_1(int arr[], int size) {
 
   int gap, i, j, k, temp;
  
