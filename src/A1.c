@@ -18,7 +18,7 @@ int main() {
 
   int origin[SIZE];
   int arr[SIZE];
-
+  
   srand(time(NULL));
   randomInitialize(origin, SIZE, 9999);
 
@@ -44,6 +44,16 @@ int main() {
   shellSort_1(arr, SIZE);
   printf("Shellsort with gap sequence (3^k - 1)/2 < ceiling(N/3)\n\n");
   fprintArray(stdout, arr, SIZE);
+
+  // Save to file for use in part B
+  FILE *f = fopen("A1.sortedArray", "w");
+  if (f == NULL) {
+    fprintf(stderr, "Error opening file!\n");
+    exit(1);
+  }
+  
+  fprintArray(f, arr, SIZE);
+  fclose(f);
 
   return 0;
 }
