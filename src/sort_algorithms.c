@@ -64,3 +64,22 @@ void cocktailSort(int arr[], int size) {
   }
   while (swaps);
 }
+
+void shellSort(int arr[], int size, int gaps[], int numGaps) {
+
+  int gap, i, j, k, temp;
+
+  // For each value in gaps
+  for (k = 0; k < numGaps; ++k) { 
+    gap = gaps[k];
+
+    //   
+    for (i = gap; i < size; ++i) { 
+      temp = arr[i];
+      for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+        arr[j] = arr[j - gap];
+      }    
+      arr[j] = temp;
+    }
+  }
+}
