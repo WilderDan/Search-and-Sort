@@ -16,31 +16,27 @@
 
 int main() {
 
+  int origin[SIZE];
   int arr[SIZE];
   int gaps_1[8] = {701, 301, 132, 57, 23, 10, 4, 1};
 
   srand(time(NULL));
+  randomInitialize(origin, SIZE, 9999);
 
-  randomInitialize(arr, SIZE, 9999);
   printf("Original Array:\n\n");
-  printArray(arr, SIZE);
+  printArray(origin, SIZE);
 
+  copyArray(arr, origin, SIZE);
   bubbleSort(arr, SIZE);
   printf("Bubble Sort with swaps counting:\n\n");
   printArray(arr, SIZE);
-
-  randomInitialize(arr, SIZE, 9999);
-  printf("Original Array:\n\n");
-  printArray(arr, SIZE);
-
+ 
+  copyArray(arr, origin, SIZE);
   cocktailSort(arr, SIZE);
   printf("Cocktail Sort with swaps counting:\n\n");
   printArray(arr, SIZE);
-
-  randomInitialize(arr, SIZE, 9999);
-  printf("Original Array:\n\n");
-  printArray(arr, SIZE);
-
+ 
+  copyArray(arr, origin, SIZE);
   shellSort(arr, SIZE, gaps_1, 8);
   printf("Shellsort with gap sequence {701, 301, 132, 57, 23, 10, 4, 1}:\n\n");
   printArray(arr, SIZE);
