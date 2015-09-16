@@ -7,6 +7,7 @@
  */
  
 #include "../include/sort_algorithms.h"
+#include <math.h>
 
 void swap(int *x, int *y) {
   int temp = *x;
@@ -65,15 +66,16 @@ void cocktailSort(int arr[], int size) {
   while (swaps);
 }
 
-void shellSort(int arr[], int size, int gaps[], int numGaps) {
+void shellSort(int arr[], int size) {
 
   int gap, i, j, k, temp;
+ 
+  // Select initial k : 2^k + 1 < size - 1; Gap Sequence: 2^k + 1
+  for (k = floor(log(size-1)/log(2)); k >= 0; --k) { 
 
-  // For each value in gaps
-  for (k = 0; k < numGaps; ++k) { 
-    gap = gaps[k];
+    // Append 1 to gap sequence on final iteration
+    gap = (k == 0) ? 1 : pow(2, k) + 1;
 
-    //   
     for (i = gap; i < size; ++i) { 
       temp = arr[i];
       for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
