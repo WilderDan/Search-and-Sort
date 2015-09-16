@@ -36,7 +36,7 @@ int main() {
   printArray(arr, SIZE);
  
   copyArray(arr, origin, SIZE);
-  shellSort(arr, SIZE);
+  shellSort_1(arr, SIZE);
   printf("Shellsort with gap sequence 2^k - 1; (1 appended to sequence)\n\n");
   printArray(arr, SIZE);
 
