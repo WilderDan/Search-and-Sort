@@ -19,10 +19,10 @@ void bubbleSort(int arr[], int size) {
  */
   int i, j, swaps;
 
-  for (i = 0; i <= size-1; ++i) {  
+  for (i = 0; i < size; ++i) {  
     swaps = 0;   
  
-    for (j = size; j >= i+1; --j)
+    for (j = size-1; j >= i+1; --j)
       if (arr[j] < arr[j-1]) {
         swap(&arr[j], &arr[j-1]);
         ++swaps;
