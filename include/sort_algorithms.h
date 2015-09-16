@@ -11,6 +11,7 @@
 
 void bubbleSort(int [], int);
 void cocktailSort(int [], int);
-void shellSort(int [], int);
+void shellSort_1(int [], int);
+void shellSort_2(int [], int);
 
 #endif
