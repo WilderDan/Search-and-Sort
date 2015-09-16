@@ -9,7 +9,9 @@
 #ifndef ARRAY_UTILITIES_H
 #define ARRAY_UTILITIES_H
 
-void printArray(int [], int);
+#include <stdio.h>
+
+void fprintArray(FILE *, int [], int);
 void randomInitialize(int [], int, int);
 void copyArray(int [], int [], int);
 

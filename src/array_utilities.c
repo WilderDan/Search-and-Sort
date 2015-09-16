@@ -10,15 +10,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printArray(int arr[], int size) {
+void fprintArray(FILE *stream, int arr[], int size) {
 /* Print in square table (10x10) with columns aligned
  */
   int i;
 
   for (i=0; i < size; i++) {
-    printf("%5d ", arr[i]);
+    fprintf(stream, "%5d ", arr[i]);
     if ((i+1)%10 == 0)
-      printf("\n");
+      fprintf(stream, "\n");
   }
 
   printf("\n");

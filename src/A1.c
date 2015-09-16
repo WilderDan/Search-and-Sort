@@ -23,27 +23,27 @@ int main() {
   randomInitialize(origin, SIZE, 9999);
 
   printf("Original Array:\n\n");
-  printArray(origin, SIZE);
+  fprintArray(stdout, origin, SIZE);
 
   copyArray(arr, origin, SIZE);
   bubbleSort(arr, SIZE);
   printf("Bubble Sort with swaps counting:\n\n");
-  printArray(arr, SIZE);
+  fprintArray(stdout, arr, SIZE);
  
   copyArray(arr, origin, SIZE);
   cocktailSort(arr, SIZE);
   printf("Cocktail Sort with swaps counting:\n\n");
-  printArray(arr, SIZE);
+  fprintArray(stdout, arr, SIZE);
  
   copyArray(arr, origin, SIZE);
   shellSort_1(arr, SIZE);
   printf("Shellsort with gap sequence 2^k + 1; (1 appended to sequence)\n\n");
-  printArray(arr, SIZE);
+  fprintArray(stdout, arr, SIZE);
 
   copyArray(arr, origin, SIZE);
   shellSort_1(arr, SIZE);
   printf("Shellsort with gap sequence (3^k - 1)/2 < ceiling(N/3)\n\n");
-  printArray(arr, SIZE);
+  fprintArray(stdout, arr, SIZE);
 
   return 0;
 }
