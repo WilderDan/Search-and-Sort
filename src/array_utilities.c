@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 void fprintArray(FILE *stream, int arr[], int size) {
-/* Print in square table (10x10) with columns aligned
+/* Print 10 values per line with aligned columns
  */
   int i;
 
