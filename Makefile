@@ -3,16 +3,25 @@ CFLAGS=-c -Wall
 
 SOURCES_A1=src/A1.c src/sort_algorithms.c src/array_utilities.c
 OBJECTS_A1=$(addprefix obj/, $(notdir $(SOURCES_A1:.c=.o) ) )
+SOURCES_A2=src/A2.c src/sort_algorithms.c src/array_utilities.c
+OBJECTS_A2=$(addprefix obj/, $(notdir $(SOURCES_A2:.c=.o) ) )
 
 A1=A1.out
+A2=A2.out
 
-all: $(A1)
+all: $(A1) $(A2)
 
 $(A1): $(OBJECTS_A1)  
 	$(CC) $(OBJECTS_A1) -o $(A1) -lm
 
+$(A2): $(OBJECTS_A2)  
+	$(CC) $(OBJECTS_A2) -o $(A2) -lm
+
 obj/A1.o: src/A1.c ./include/sort_algorithms.h ./include/array_utilities.h
 	$(CC) $(CFLAGS) src/A1.c -o obj/A1.o
+
+obj/A2.o: src/A2.c ./include/sort_algorithms.h ./include/array_utilities.h
+	$(CC) $(CFLAGS) src/A2.c -o obj/A2.o
 
 obj/sort_algorithms.o: src/sort_algorithms.c ./include/sort_algorithms.h
 	$(CC) $(CFLAGS) src/sort_algorithms.c -o obj/sort_algorithms.o
