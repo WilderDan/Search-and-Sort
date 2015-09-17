@@ -4,6 +4,15 @@
  *  Semester:		Fall 2015
  *  Class: 		CS 3130 - Design and Analysis of Algorithms   
  *  Instructor:		Galina N. Piatnitskaia
+ *
+ *  Description:
+ *    [25 points] Write a program to implement four sorting algorithms:
+ *  (a) bubble sort with swaps counting, (b) cocktail (or shaker) sort with 
+ *  swaps counting, (c) and (d) two versions of Shell sort (with two different
+ *  sequences of “gaps”). Each algorithm must be implemented as a function. Run
+ *  your program for an array containing 100 random integers. Show the original
+ *  and sorted arrays in your output. REMEMBER to display arrays in the form of
+ *  a square table with aligned columns!
  */
 
 #include <stdio.h>
