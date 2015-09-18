@@ -21,11 +21,14 @@
 #include "../include/search_algorithms.h"
 
 #define INPUT_FILENAME "A1.sortedArray"
-#define SIZE 100
+#define SIZE           100
+#define MIN_VAL        1
+#define MAX_VAL        9999
 
 int main() {
-  
+ 
   int arr[SIZE];
+  int search, indexLinear, indexBinary;
   FILE *inFile = fopen(INPUT_FILENAME, "r");
 
   if (inFile == NULL) {
@@ -35,7 +38,27 @@ int main() {
 
   readArrayFile(inFile, arr, SIZE);
   fclose(inFile);
-
+  
+  search = (rand() % (MAX_VAL-MIN_VAL)) + MIN_VAL;
+  indexLinear = linearSearch(arr, SIZE, search);
+  indexBinary = binarySearch(arr, SIZE, search);
+  
+  // Results
+  printf("Array to be searched:\n");
   fprintArray(stdout, arr, SIZE);
+  printf("Search value = %d\n", search);
+
+  printf("\nLinear Search:\n")
+  if (linearIndex >= 0)
+    printf("\tValue found at index: %d", linearIndex);
+  else
+    printf("\tValue NOT found!\n");
+
+  printf("\nBinary Search:\n")
+  if (binaryIndex >= 0)
+    printf("\tValue found at index: %d", binaryIndex);
+  else
+    printf("\tValue NOT found!\n");
+ 
   return 0;
 }
