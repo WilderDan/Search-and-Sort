@@ -21,6 +21,7 @@
 #include "../include/array_utilities.h"
 
 // Parameters:
+#define MIN_VAL  1
 #define MAX_VAL  9999
 #define NUM_RUNS 10
 const int SIZES[] = {500, 1000, 2500, 5000};
@@ -47,7 +48,7 @@ double average_CPU_time(void (*sortFuncPtr)(int [], int),
   clock_t start, end;
 
   for (i = 0; i < numRuns; ++i) {
-    randomInitialize(arr, size, MAX_VAL);
+    randomInitialize(arr, size, MIN_VAL, MAX_VAL);
     start = clock();
     (*sortFuncPtr)(arr, size);    
     end = clock();
@@ -81,13 +82,11 @@ int main() {
     cpu_times[SHELLSORT_2][i] =
       average_CPU_time(shellSort_2, arr, SIZES[i], NUM_RUNS);
 
-    // Free
+    // Free memory
     free(arr);
   }
 
-  // Print Results The output of the program is average 
-  //  execution times for all sizes. 
-  
+  // Print Results
   printf("Average CPU Execution Times: (%d runs each)\n", NUM_RUNS);
   for (i = 0; i < NUM_SIZES; i++) {
     printf("\tArray Size %d:\n", SIZES[i]);
