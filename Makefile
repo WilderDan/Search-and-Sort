@@ -20,7 +20,7 @@ A1=A1.out
 A2=A2.out
 B1=B1.out
 
-all: $(A1) $(A2)
+all: $(A1) $(A2) $(B1)
 
 A1: $(A1)
 A2: $(A2)
