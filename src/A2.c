@@ -20,38 +20,40 @@
 #include "../include/sort_algorithms.h"
 #include "../include/array_utilities.h"
 
-// Parameters:
+#define MAX_CHARS 16
+struct sortFunction {
+  void (*funcPtr) (int [], int);
+  char name[MAX_CHARS]; 
+};
+
+// PARAMETERS
+
 #define MIN_VAL  1
 #define MAX_VAL  999
 #define NUM_RUNS 10
+
 const int SIZES[] = {500, 1000, 2500, 5000};
 
-#define NUM_SORT_FUNCS 4
-
-// Array indices:
-#define BUBBLE         0
-#define COCKTAIL       1
-#define SHELLSORT_1    2
-#define SHELLSORT_2    3
+const struct sortFunction SORT_FUNCS[]  = {
+  {.funcPtr = bubbleSort, .name = "Bubble Sort"},
+  {.funcPtr = cocktailSort, .name = "Cocktail Sort"},
+  {.funcPtr = shellSort_1, .name = "Shell Sort(1)"},
+  {.funcPtr = shellSort_2, .name = "Shell Sort(2)"},
+};
 
 double average_CPU_time(void (*sortFuncPtr)(int [], int), 
                         int arr[], int size, int numRuns) {
-/* 1) Randomly Initialize 'arr' with 'size' elements.  
- * 2) Call 'sort_function' with 'arr' and 'size' as arguments
- * 3) Record cpu time taken
- * 4) Repeat steps 1-3 'numRuns' times
- * 5) Return average
- */
-
   int i; 
   double total = 0.0;
   clock_t start, end;
 
   for (i = 0; i < numRuns; ++i) {
     randomInitialize(arr, size, MIN_VAL, MAX_VAL);
+
     start = clock();
     (*sortFuncPtr)(arr, size);    
     end = clock();
+
     total += ((double) (end - start)) / CLOCKS_PER_SEC;  
   } 
 
@@ -61,26 +63,19 @@ double average_CPU_time(void (*sortFuncPtr)(int [], int),
 int main() {
 
   const int NUM_SIZES = sizeof(SIZES)/sizeof(SIZES[0]);
+  const int NUM_SORT_FUNCS = sizeof(SORT_FUNCS) / sizeof(SORT_FUNCS[0]);
   double cpu_times[NUM_SORT_FUNCS][NUM_SIZES];
-  int i, *arr;
+  int i, j, *arr;
 
   // For each size in SIZES
   for (i = 0; i < NUM_SIZES; ++i) {
     // Allocate
     arr = (int *) malloc(SIZES[i] * sizeof(int));
 
-    // Time
-    cpu_times[BUBBLE][i] =
-      average_CPU_time(bubbleSort, arr, SIZES[i], NUM_RUNS);
-
-    cpu_times[COCKTAIL][i] = 
-      average_CPU_time(cocktailSort, arr, SIZES[i], NUM_RUNS);
-
-    cpu_times[SHELLSORT_1][i] =
-      average_CPU_time(shellSort_1, arr, SIZES[i], NUM_RUNS);
-
-    cpu_times[SHELLSORT_2][i] =
-      average_CPU_time(shellSort_2, arr, SIZES[i], NUM_RUNS);
+    // Time each sort function of THIS PARTICULAR SIZE
+    for (j = 0; j < NUM_SORT_FUNCS; ++j)
+      cpu_times[j][i] =
+        average_CPU_time(SORT_FUNCS[j].funcPtr, arr, SIZES[i], NUM_RUNS);
 
     // Free memory
     free(arr);
@@ -90,10 +85,9 @@ int main() {
   printf("Average CPU Execution Times: (%d runs each)\n", NUM_RUNS);
   for (i = 0; i < NUM_SIZES; i++) {
     printf("\tArray Size %d:\n", SIZES[i]);
-    printf("\t\tBubble Sort == %lf msec\n", cpu_times[BUBBLE][i] * 1000);
-    printf("\t\tCocktail Sort == %lf msec\n", cpu_times[COCKTAIL][i] * 1000);
-    printf("\t\tShell Sort (1) == %lf msec\n", cpu_times[SHELLSORT_1][i] * 1000);
-    printf("\t\tShell Sort (2) == %lf msec\n", cpu_times[SHELLSORT_2][i] * 1000);    
+    
+    for (j = 0; j < NUM_SORT_FUNCS; ++j) 
+      printf("\t\t%s == %lf msec\n", SORT_FUNCS[j].name, cpu_times[j][i] * 1000);
   }
 
   return 0;
