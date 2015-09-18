@@ -22,7 +22,7 @@
 
 // Parameters:
 #define MIN_VAL  1
-#define MAX_VAL  9999
+#define MAX_VAL  999
 #define NUM_RUNS 10
 const int SIZES[] = {500, 1000, 2500, 5000};
 

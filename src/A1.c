@@ -23,7 +23,7 @@
 
 #define SIZE 100
 #define MIN_VAL 1
-#define MAX_VAL 9999
+#define MAX_VAL 999
 
 int main() {
 
