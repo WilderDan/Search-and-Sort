@@ -66,8 +66,8 @@ int main() {
   // For each size in SIZES
   for (i = 0; i < NUM_SIZES; ++i) {
     // Allocate
-    arr = (int *) malloc(NUM_SIZES * sizeof(int));
-    
+    arr = (int *) malloc(SIZES[i] * sizeof(int));
+
     // Time
     cpu_times[BUBBLE][i] =
       average_CPU_time(bubbleSort, arr, SIZES[i], NUM_RUNS);
@@ -83,11 +83,19 @@ int main() {
 
     // Free
     free(arr);
-    
   }
 
-  // Print Results
-    
+  // Print Results The output of the program is average 
+  //  execution times for all sizes. 
+  
+  printf("Average CPU Execution Times: (%d runs)\n", NUM_RUNS);
+  for (i = 0; i < NUM_SIZES; i++) {
+    printf("\tArray Size %d:\n", SIZES[i]);
+    printf("\t\tBubble Sort == %lf msec\n", cpu_times[BUBBLE][i] * 1000);
+    printf("\t\tCocktail Sort == %lf msec\n", cpu_times[COCKTAIL][i] * 1000);
+    printf("\t\tShell Sort (1) == %lf msec\n", cpu_times[SHELLSORT_1][i] * 1000);
+    printf("\t\tShell Sort (2) == %lf msec\n", cpu_times[SHELLSORT_2][i] * 1000);    
+  }
 
   return 0;
 }
