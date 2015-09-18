@@ -88,7 +88,7 @@ int main() {
   // Print Results The output of the program is average 
   //  execution times for all sizes. 
   
-  printf("Average CPU Execution Times: (%d runs)\n", NUM_RUNS);
+  printf("Average CPU Execution Times: (%d runs each)\n", NUM_RUNS);
   for (i = 0; i < NUM_SIZES; i++) {
     printf("\tArray Size %d:\n", SIZES[i]);
     printf("\t\tBubble Sort == %lf msec\n", cpu_times[BUBBLE][i] * 1000);
