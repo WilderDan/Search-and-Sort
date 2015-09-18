@@ -22,6 +22,7 @@
 #include "../include/array_utilities.h"
 
 #define SIZE 100
+#define MIN_VAL 1
 #define MAX_VAL 9999
 
 int main() {
@@ -30,7 +31,7 @@ int main() {
   int arr[SIZE];
   
   srand(time(NULL));
-  randomInitialize(origin, SIZE, MAX_VAL);
+  randomInitialize(origin, SIZE, MIN_VAL, MAX_VAL);
 
   printf("Original Array:\n\n");
   fprintArray(stdout, origin, SIZE);
