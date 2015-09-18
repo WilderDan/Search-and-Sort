@@ -11,7 +11,7 @@
 int linearSearch(int arr[], int size, int search) {
   int i;
 
-  for (int i = 0; i < size; ++i) 
+  for (i = 0; i < size; ++i) 
     if (arr[i] == search)
       return i;
 
@@ -21,9 +21,9 @@ int linearSearch(int arr[], int size, int search) {
 
 int binarySearch(int arr[], int size, int search) {
 
-  first = 0;
-  last = n - 1;
-  middle = (first+last)/2;
+  int first = 0;
+  int last = size - 1;
+  int middle = (first+last)/2;
 
   while (first <= last) {
 

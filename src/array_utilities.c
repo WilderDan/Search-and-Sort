@@ -42,3 +42,13 @@ void copyArray(int dest[], int source[], int size) {
   for (i = 0; i < size; ++i)
     dest[i] = source[i];
 }
+
+void readArrayFile(FILE *stream, int arr[], int size) {
+  int i, read;
+
+  for (i = 0; i < size; ++i) {
+    if (fscanf(stream, "%d", &read) == EOF) 
+      break;
+    arr[i] = read;
+  }
+}

@@ -6,17 +6,25 @@
 #  Instructor:		Galina N. Piatnitskaia
 
 CC=gcc
-CFLAGS=-c -Wall
+CFLAGS=-c -g -Wall
 
 SOURCES_A1=src/A1.c src/sort_algorithms.c src/array_utilities.c
-OBJECTS_A1=$(addprefix obj/, $(notdir $(SOURCES_A1:.c=.o) ) )
 SOURCES_A2=src/A2.c src/sort_algorithms.c src/array_utilities.c
+SOURCES_B1=src/B1.c src/search_algorithms.c src/array_utilities.c
+
+OBJECTS_A1=$(addprefix obj/, $(notdir $(SOURCES_A1:.c=.o) ) )
 OBJECTS_A2=$(addprefix obj/, $(notdir $(SOURCES_A2:.c=.o) ) )
+OBJECTS_B1=$(addprefix obj/, $(notdir $(SOURCES_B1:.c=.o) ) )
 
 A1=A1.out
 A2=A2.out
+B1=B1.out
 
 all: $(A1) $(A2)
+
+A1: $(A1)
+A2: $(A2)
+B1: $(B1)
 
 $(A1): $(OBJECTS_A1)  
 	$(CC) $(OBJECTS_A1) -o $(A1) -lm
@@ -24,14 +32,23 @@ $(A1): $(OBJECTS_A1)
 $(A2): $(OBJECTS_A2)  
 	$(CC) $(OBJECTS_A2) -o $(A2) -lm
 
+$(B1): $(OBJECTS_B1)  
+	$(CC) $(OBJECTS_B1) -o $(B1) -lm
+
 obj/A1.o: src/A1.c ./include/sort_algorithms.h ./include/array_utilities.h
 	$(CC) $(CFLAGS) src/A1.c -o obj/A1.o
 
 obj/A2.o: src/A2.c ./include/sort_algorithms.h ./include/array_utilities.h
 	$(CC) $(CFLAGS) src/A2.c -o obj/A2.o
 
+obj/B1.o: src/B1.c ./include/search_algorithms.h ./include/array_utilities.h
+	$(CC) $(CFLAGS) src/B1.c -o obj/B1.o
+
 obj/sort_algorithms.o: src/sort_algorithms.c ./include/sort_algorithms.h
 	$(CC) $(CFLAGS) src/sort_algorithms.c -o obj/sort_algorithms.o
+
+obj/search_algorithms.o: src/search_algorithms.c ./include/search_algorithms.h
+	$(CC) $(CFLAGS) src/search_algorithms.c -o obj/search_algorithms.o
 
 obj/array_utilities.o: src/array_utilities.c ./include/array_utilities.h
 	$(CC) $(CFLAGS) src/array_utilities.c -o obj/array_utilities.o
