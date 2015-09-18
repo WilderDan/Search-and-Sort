@@ -1,3 +1,10 @@
+#  Author: 		Dan Wilder
+#
+#  School:		University of Missouri - St. Louis
+#  Semester:		Fall 2015
+#  Class: 		CS 3130 - Design and Analysis of Algorithms   
+#  Instructor:		Galina N. Piatnitskaia
+
 CC=gcc
 CFLAGS=-c -Wall
 
@@ -32,4 +39,5 @@ obj/array_utilities.o: src/array_utilities.c ./include/array_utilities.h
 .PHONY: clean
 
 clean:
-	rm $(OBJECTS_A1) $(A1)
+	rm $(OBJECTS_A1) $(OBJECTS_A2) $(A1) $(A2)
+
