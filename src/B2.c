@@ -19,28 +19,27 @@
 #include "../include/sort_algorithms.h"
 #include "../include/array_utilities.h"
 
-// Parameters:
+#define MAX_CHARS 16
+struct searchFunction {
+  int (*funcPtr) (int [], int, int);
+  char name[MAX_CHARS]; 
+};
+
+// PARAMETERS
+
 #define MIN_VAL  1
 #define MAX_VAL  999
 #define NUM_RUNS 10
+
 const int SIZES[] = {500, 1000, 2500, 5000};
 
-#define NUM_SEARCH_FUNCS 2
-
-// Array indices:
-#define LINEAR        0
-#define BINARY        1
+const struct searchFunction SEARCH_FUNCS[]  = {
+  {.funcPtr = linearSearch, .name = "Linear Search"},
+  {.funcPtr = binarySearch, .name = "Binary Search"}
+};
 
 double average_CPU_time(int (*searchFuncPtr)(int [], int, int), 
                         int arr[], int size, int numRuns) {
-/* 1) Randomly Initialize 'arr' with 'size' elements.  
- * 2) Sort array
- * 2) Call search function with 'arr' and 'size' and random search value
- * 3) Record cpu time taken for SEARCH ONLY
- * 4) Repeat steps 1-3 'numRuns' times
- * 5) Return average
- */
-
   int i; 
   double total = 0.0;
   clock_t start, end;
@@ -60,8 +59,9 @@ double average_CPU_time(int (*searchFuncPtr)(int [], int, int),
 int main() {
 
   const int NUM_SIZES = sizeof(SIZES)/sizeof(SIZES[0]);
+  const int NUM_SEARCH_FUNCS = sizeof(SEARCH_FUNCS) / sizeof(SEARCH_FUNCS[0]);
   double cpu_times[NUM_SEARCH_FUNCS][NUM_SIZES];
-  int i, *arr;
+  int i, j, *arr;
 
   srand(time(NULL));
 
@@ -71,11 +71,9 @@ int main() {
     arr = (int *) malloc(SIZES[i] * sizeof(int));
 
     // Time
-    cpu_times[LINEAR][i] =
-      average_CPU_time(linearSearch, arr, SIZES[i], NUM_RUNS);
-
-    cpu_times[BINARY][i] = 
-      average_CPU_time(binarySearch, arr, SIZES[i], NUM_RUNS);
+    for (j = 0; j < NUM_SEARCH_FUNCS; ++j)
+      cpu_times[j][i] =
+        average_CPU_time(SEARCH_FUNCS[j].funcPtr, arr, SIZES[i], NUM_RUNS);
 
     // Free memory
     free(arr);
@@ -85,8 +83,9 @@ int main() {
   printf("Average CPU Execution Times: (%d runs each)\n", NUM_RUNS);
   for (i = 0; i < NUM_SIZES; i++) {
     printf("\tArray Size %d:\n", SIZES[i]);
-    printf("\t\tLinear Search == %lf msec\n", cpu_times[LINEAR][i] * 1000);
-    printf("\t\tBinary Search == %lf msec\n", cpu_times[BINARY][i] * 1000);
+
+     for (j = 0; j < NUM_SEARCH_FUNCS; ++j) 
+      printf("\t\t%s == %lf msec\n", SEARCH_FUNCS[j].name, cpu_times[j][i] * 1000);
   }
 
   return 0;
