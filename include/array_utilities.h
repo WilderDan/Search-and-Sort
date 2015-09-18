@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 void fprintArray(FILE *, int [], int);
-void randomInitialize(int [], int, int);
+void randomInitialize(int [], int, int, int);
 void copyArray(int [], int [], int);
 void readArrayFile(FILE *, int [], int);
 

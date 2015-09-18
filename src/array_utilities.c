@@ -24,14 +24,14 @@ void fprintArray(FILE *stream, int arr[], int size) {
   printf("\n");
 }
 
-void randomInitialize(int arr[], int size, int maxVal) {
+void randomInitialize(int arr[], int size, int minVal, int maxVal) {
 /* Initialize arr[0..size-1] to random int in interval [1, maxVal]
  * srand() should be called in application program ONCE prior to calling this
  */
   int i, randomInt;
    
   for (i = 0; i < size; i++) {
-    randomInt = (rand() % maxVal-1) + 1;
+    randomInt = (rand() % maxVal-minVal) + minVal;
     arr[i] = randomInt;
   }
 }
