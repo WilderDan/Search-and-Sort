@@ -66,5 +66,5 @@ obj/array_utilities.o: src/array_utilities.c ./include/array_utilities.h
 .PHONY: clean
 
 clean:
-	rm $(OBJECTS_A1) $(OBJECTS_A2) $(A1) $(A2)
+	rm $(OBJECTS_A1) $(OBJECTS_A2) $(OBJECTS_B1) $(OBJECTS_B2) $(A1) $(A2) $(B1) $(B2)
 
