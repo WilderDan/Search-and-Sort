@@ -33,7 +33,8 @@ int main() {
   FILE *inFile = fopen(INPUT_FILENAME, "r");
 
   if (inFile == NULL) {
-    fprintf(stderr, "Error opening file... Goodbye!");
+    fprintf(stderr, "Error opening file...\n");
+    fprintf(stderr, "Did you run program A1 of project?\nGoodbye!\n");
     exit(1);
   } 
 
