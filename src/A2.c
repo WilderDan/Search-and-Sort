@@ -38,7 +38,7 @@ const struct sortFunction SORT_FUNCS[]  = {
   {.funcPtr = bubbleSort, .name = "Bubble Sort"},
   {.funcPtr = cocktailSort, .name = "Cocktail Sort"},
   {.funcPtr = shellSort_1, .name = "Shell Sort(1)"},
-  {.funcPtr = shellSort_2, .name = "Shell Sort(2)"},
+  {.funcPtr = shellSort_2, .name = "Shell Sort(2)"}
 };
 
 double average_CPU_time(void (*sortFuncPtr)(int [], int), 
