@@ -47,9 +47,11 @@ double average_CPU_time(int (*searchFuncPtr)(int [], int, int),
   for (i = 0; i < numRuns; ++i) {
     randomInitialize(arr, size, MIN_VAL, MAX_VAL);
     shellSort_2(arr, size);
+
     start = clock();
     (*searchFuncPtr)(arr, size, (rand() % (MAX_VAL-MIN_VAL)) + MIN_VAL);    
     end = clock();
+
     total += ((double) (end - start)) / CLOCKS_PER_SEC;  
   } 
 
